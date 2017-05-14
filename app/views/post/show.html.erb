@@ -1,0 +1,64 @@
+
+
+<meta name="twitter:card" content="photo" />
+<meta name="twitter:site" content="Spitch.ng" />
+<meta name="twitter:title" content="<%=@post.title%>" /> 
+<meta name="twitter:image" content="<%=@post.image%>" />
+<meta name="twitter:url" content="http://www.gofixam.com/blog/<%=@post.url%>" />
+
+<% provide(:title, @post.title)%>
+
+
+<div class="container-fluid">
+
+
+<%= render 'shared/header'%>
+
+<div class="container-fluid home_logo">
+	<div class="container ">
+	
+	
+<%= render 'home/navbar'%>
+</div>
+</div>
+
+
+<div class="pitchwrapper">
+<div class="container">
+
+<%= render 'home/homemenu'%>
+
+
+<div class="pitcher-body">
+
+<div class="row">
+ <div class="col-sm-8 post_left">
+
+<div> <%= render 'post_left'%></div>
+
+
+ 	<div class="fb-comments" data-href="localhost:3000/post/<%=@post.url%>"  data-numposts="5" data-width="100%" ></div>
+
+ </div>
+
+<div class="col-sm-4 home_right">
+
+<%= render 'home/home_right'%>
+
+</div>
+</div>
+ </div>
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+<%= render 'shared/footer'%>

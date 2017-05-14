@@ -1,0 +1,93 @@
+<div class="admin_wrapper">
+
+		<div class="admin-header">
+			<%=render 'dashboard/navbar' %>
+		</div>
+
+
+		<div class="container">
+
+
+		<div class="table-responsive">
+
+			<div class="row">
+
+					<div class="col-sm-6">
+						<h3> <span class="glyphicon glyphicon-tag"></span> App Name: <%=@pitch.company_name%></h3>
+					</div>
+
+						<div class="booking_options col-sm-6">
+
+						 <%=render 'action' %>
+
+
+
+			        </div>
+				
+			</div>
+		
+				
+
+              <table class='table table-striped edit_pitch' >
+              
+              	<tr>
+              		<th>Owner Name:</th> <td><%= @pitch.owner_name.humanize %></td>
+              	</tr>
+
+                     <tr>
+                            <th>Owner Email:</th> <td><%= @pitch.owner_email%></td>
+                     </tr>
+
+              	<tr>
+              		<th>Phone Number:</th> <td><%= @pitch.contact %></td>
+              	</tr>
+
+                     <tr>
+                            <th>App Headline:</th> <td><%= @pitch.headline %></td>
+                     </tr>
+
+                     <tr>
+                            <th>App Description:</th> <td><%= @pitch.description %></td>
+                     </tr>
+
+                     <tr>
+                            <th>Other Info:</th> <td><%= @pitch.other_info %></td>
+                     </tr>
+
+                     <tr>
+                            <th>Launch Date:</th> <td><%= @pitch.launch_date %></td>
+                     </tr>
+
+                     <tr>
+                            <th>App Category:</th> <td><%= @pitch.category %></td>
+                     </tr>
+
+                     <tr>
+                            <th>App Link:</th> <td><%= @pitch.app_link %></td>
+                     </tr>
+
+              	<tr>
+              		<th>Pitched:</th> <td><%= @pitch.created_at.strftime("%d %B %Y") %></td>
+              	</tr>
+
+                     <tr>
+                            <th>Pitch Status:</th> <td><i><u><%= @pitch.pitch_status %></u></i></td>
+                     </tr>
+
+
+
+
+
+
+              	</tr>
+              
+
+
+              </table>
+
+
+		</div>
+
+</div>
+
+<%=render "shared/footer2"%>

@@ -1,0 +1,56 @@
+		<div class="table-responsive">
+              <table class='table'>
+              
+                <thead>
+                    <tr class="pitch_header">
+
+                    <th>App Name</th>
+
+                    <th>Pitched </th>
+
+                    <th>Pitch Status </th>
+
+                    <th>Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                <% @all_pitches.each do |pitch| %>
+
+                <tr>
+
+          			<td><div class="order_time"><%= pitch.company_name %></div>
+                  </td>
+
+                  <td><div class="order_time"><%= pitch.created_at.strftime("%d %b %Y") %>/<%= pitch.created_at.strftime('%H:%M %p')%></div>
+                  </td>
+
+                  <td> <div class="order_time"><%= pitch.pitch_status %></div>
+                  </td>
+
+
+                    <td>
+                    <%=link_to edit_pitch_path(pitch), class:"btn btn-info"  do%>
+                          <i class="glyphicon glyphicon-edit"></i> View Details
+                    <% end -%>
+
+                    <%=link_to pitch_path(pitch), class:"btn btn-danger",method: :delete,data: { confirm: "Are you sure?" }  do%>
+                          <i class="glyphicon glyphicon-trash"></i> Delete
+                    <% end -%>
+
+                    </td>
+
+
+                  </tr>
+
+
+ <% end -%>
+
+                </tbody>
+
+               
+
+                </table>
+			
+		</div>

@@ -1,0 +1,18 @@
+<div class="action_status">
+<%= form_for :pitch, url:pitch_path(@pitch), method: :patch  do|f| %>
+
+
+						<%= f.select(:pitch_status, options_for_select([
+			         ['pitched', 'pitched'],
+			         ['pending', 'pending']],@pitch.pitch_status || default_value),
+			        class: "form-control") %>
+
+			       	<%= f.submit "Update",id:'submit_bts' %>
+			        <%= link_to "BACK", dashboard_index_path, class: "btn" %>
+
+
+
+
+<% end -%>
+</div>
+</div>

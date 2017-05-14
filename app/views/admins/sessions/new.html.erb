@@ -1,0 +1,45 @@
+<% provide(:title, 'Admin Login | Gofixam')%>
+
+  <div class="login_wrapper">
+<div class="logo_icon">
+<%=link_to  root_path do  %>
+  <%=image_tag 'logo.PNG',class:'img-thumbnail'%>
+<% end -%>
+</div>
+
+
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),:html=>{class:"form-signin"}) do |f| %>
+
+<%= f.error_notification %>
+
+  <div class="form-inputs">
+
+<div class="form-group">
+    <%= f.input :email, required: true,placeholder:"admin@gofixam.com" %>
+</div>
+<div class="form-group">
+    <%= f.input :password, required: true,placeholder:"********" %>
+  </div>
+<div class="form-group">
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Log in",class:"btn btn-lg btn-primary btn-block" %>
+  </div>
+<% end %>
+
+</div>
+
+
+<div class="devise_login_links">
+  <%= render "admins/shared/links" %>
+  </div>
+</div>
+
+<%= render 'shared/footer2'%>
+
+
+

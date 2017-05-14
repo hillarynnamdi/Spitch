@@ -1,0 +1,58 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button> 
+
+    <%=link_to  root_path do  %>
+					  <%=image_tag 'logo.PNG', class:"img-thumbnail" %>   <% end -%>
+  </div>
+
+  <div class="navbar-collapse collapse">
+	<ul class="nav navbar-nav navbar-right">
+		<li class="dropdown">
+			<a class="pitch_menu" href="/pitch/new"><span class="glyphicon glyphicon-user"></span> Pitch</a>
+		</li>
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-search menuicon"></span>
+			</a>
+			<ul class="dropdown-menu search-menu">
+				<li>
+					<%= form_tag home_index_path, method: :get  do %>
+				
+					 <div class="input-group input-group-sm">
+					  <%= text_field_tag :search,params[:search],class:"form-control",autocomplete:'off',placeholder:'search category, startup, app, product, url' %>
+					<span class="input-group-btn"><%= submit_tag "Search",class:"btn btn-info" %></span>
+
+					</div>
+
+					<%end%> 
+
+
+				</li>
+			</ul>
+		</li>	
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-list menuicon"></span><span class="caret">
+			</a>
+
+			<%=render 'home/menu_ul'%>
+
+
+
+
+
+
+
+
+
+
+		</li>
+	</ul>
+  </div>
+</nav>
+
+
+

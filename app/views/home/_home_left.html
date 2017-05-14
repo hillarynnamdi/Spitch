@@ -1,0 +1,68 @@
+<% @posts.each do |post|%>
+
+<div class="row blog_main_div">
+
+
+
+
+
+ <div class="col-sm-6">
+
+
+  <%=image_tag post.image,class:'home_leftimage' %>
+
+
+ </div>
+
+
+  <div class="col-sm-6">
+
+  <div class="post_title">
+
+<%=link_to post.title,post_path(post.url),class:'post_url' %>
+
+<div class="post_date">
+ <%=post.created_at.strftime('%B %d') %>, <%=post.created_at.strftime('%Y') %>
+</div>
+
+</div>
+
+<div class="post_content"><%= strip_tags(post.post).truncate(120, separator: ' ') %>
+<%=link_to "Read More...",post_path(post.url),style:'font-size:16px' %> 
+ </div>
+
+
+<div class="admin_auth_menu navbar-right">
+
+<% if admin_signed_in? %>
+	<%=link_to  edit_post_path(post) do  %>
+  <span class='glyphicon glyphicon-edit' title="Visible to admin only"></span>
+<%end%>
+
+<%=link_to  post_path(post),method: :delete,data: { confirm: "Are you sure?" } do  %>
+
+  <span class='glyphicon glyphicon-trash' title="Visible to admin only"></span>
+
+<%end%>
+
+
+
+
+
+<% end %>
+
+</div>
+
+
+
+
+ </div>
+
+ </div>
+                      
+                                                                                               
+ <%end%>
+
+ <div id='pagination_div'>
+<%=will_paginate @posts, renderer: BootstrapPagination::Rails,:previous_label => '<', :next_label => '>', inner_window: 1, outer_window: 1 %>
+</div>

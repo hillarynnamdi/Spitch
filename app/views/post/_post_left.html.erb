@@ -1,0 +1,66 @@
+
+<div class="row blog_main_div">
+
+<div class="post_title2">
+
+<%=link_to @post.title,post_path(@post.url),class:'post_url' %>
+
+<div class="post_date">
+ <%=@post.created_at.strftime('%B %d') %>, <%=@post.created_at.strftime('%Y') %>
+</div>
+
+<ul class="nav navbar-nav share">
+		<li><div class="fb-share-button" data-href="http://www.gofixam.com/blog/<%=@post.url%>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.gofixam.com%2Fblog%2F<%=@post.url%>&amp;src=sdkpreparse"></a></div></li>
+
+		<li><div>
+		<a class="twitter-share-button"
+		href="http://www.gofixam.com/blog/<%=@post.url%>"
+		data-size="large">
+		Tweet</a>
+		</div></li>
+
+    </ul>
+
+</div>
+
+
+
+ <div class="col-sm-12">
+
+
+  <%=image_tag @post.image  %>
+
+
+<div class="showpost_content">
+	<%= @post.post.html_safe %> 
+ </div>
+
+
+<div class="admin_auth_menu navbar-right">
+
+<% if admin_signed_in? %>
+	<%=link_to  edit_post_path(@post) do  %>
+  <span class='glyphicon glyphicon-edit' title="Visible to admin only"></span>
+<%end%>
+
+<%=link_to  post_path(@post),method: :delete,data: { confirm: "Are you sure?" } do  %>
+
+  <span class='glyphicon glyphicon-trash' title="Visible to admin only"></span>
+
+<%end%>
+
+
+
+
+
+<% end %>
+
+</div>
+
+
+
+
+ </div>
+
+ </div>
+                      

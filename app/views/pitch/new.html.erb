@@ -1,0 +1,163 @@
+<div class="container-fluid">
+
+
+<%= render 'shared/header'%>
+
+
+<div class="container-fluid home_logo">
+  <div class="container ">
+  
+  
+<%= render 'home/navbar'%>
+</div>
+</div>
+
+
+<div class="container-fluid pitch_new">
+
+<div class="pitch_new2">
+<div class="submit_a_startup">
+	<h3>Tell us a little about you and your startup. </h3>
+<h5></h5>
+	</div>
+
+<div class="pitch_content">
+<%= form_for :pitch,url: pitch_index_path  do |f| %>
+
+<p>
+    <%= f.label :your_name %> <span class="required_pitch">*</span> <br>
+    <%= f.text_field :owner_name,class:"form-control",autocomplete:"off",required:true %>
+  </p>
+
+<p>
+    <%= f.label :email %> <span class="required_pitch">*</span> <br>
+    <%= f.email_field :owner_email,class:"form-control",autocomplete:"off",required:true  %>
+  </p>
+
+    <p>
+    <label>Company Address (If any)</label><br>
+    <%= f.text_area :company_address,class:"form-control",autocomplete:"off"  %>
+  </p>
+
+  <p>
+    <label>Contact phone <span class="required_pitch">*</span></label><br>
+    <%= f.telephone_field :contact,class:"form-control",autocomplete:"off",required:true  %>
+  </p>
+
+
+
+  <p>
+    <label> Startup Headline in one sentence</label> <span class="required_pitch">*</span> <br>
+    <%= f.text_field :headline,class:"form-control",autocomplete:"off",required:true  %>
+  </p>
+
+ 
+
+  <p>
+    <label>Product/Solution/Company Name <span class="required_pitch">*</span></label><br>
+    <%= f.text_field :company_name,class:"form-control",autocomplete:"off",required:true  %>
+  </p>
+
+    <p>
+    <label>Product/Solution/Company Category <span class="required_pitch">*</span></label><br>
+
+
+      <%= f.select(:category, options_for_select([
+         ['select category',''],
+         ['Art & Design', 'Art & Design'],
+         ['Auto & Vehicles', 'Auto & Vehicles'],
+         ['Beauty', 'Beauty'],
+         ['Books & Reference', 'Books & Reference'],
+         ['Business', 'Business'],
+         ['Comics', 'Comics'],
+         ['Communications', 'Communications'],
+         ['Education', 'Education'],
+         ['Entertainment', 'Entertainment'],
+         ['Events', 'Events'],
+         ['Finance', 'Finance'],
+         ['Food and Drink', 'Food and Drink'],
+         ['Health & Fitness', 'Health & Fitness'],
+         ['House & Home', 'House & Home'],
+         ['Libraries & Demo', 'Libraries & Demo'],
+         ['Lifestyle', 'Lifestyle'],
+         ['Maps & Navigation', 'Maps & Navigation'],
+         ['Medical', 'Medical'],
+         ['Music & Audio', 'Music & Audio'],
+         ['News & Magazines', 'News & Magazines'],
+         ['Parenting', 'Parenting'],
+         ['Personalization', 'Personalization'],
+         ['Photography', 'Photography'],
+         ['Productivity', 'Productivity'],
+         ['Shopping', 'Shopping'],
+         ['Social', 'Social'],
+         ['Sports', 'Sports'],
+         ['Travel & Local', 'Travel & Local'],
+         ['Video Players & Editors', 'Video Players & Editors'],
+         ['Weather', 'Weather']
+
+    ]),:required => true, class: "form-control") %>
+
+
+  </p>
+
+
+  <p>
+    <label>Describe your product, service or solution in more detail  <span class="required_pitch">*</span></label>
+    <%= f.text_area :description,class:"form-control",autocomplete:"off",required:true  %>
+  </p>
+
+  
+
+    <p>
+    <label>Launch Date: <span class="required_pitch">*</span></label><br>
+    <%= f.date_select :launch_date,class:"form-control",autocomplete:"off",required:true  %>
+  </p>
+
+
+
+  <p>
+    <label>Product/App/Solution Link <span class="required_pitch">*</span></label><br>
+    <%= f.text_field :app_link,class:"form-control",autocomplete:"off",required:true  %>
+  </p>
+
+
+   <p>
+    <label>Team Members <span class="required_pitch">*</span></label><br>
+    <%= f.text_field :team_members,class:"form-control",autocomplete:"off",required:true  %>
+  </p>
+
+   <p>
+    <label>Anything else we need to know about your company or product?</label><br>
+    <%= f.text_area :other_info,class:"form-control",autocomplete:"off"  %>
+  </p>
+
+
+
+
+ 
+  <p>
+    <%= f.submit "Submit Startup",class:"btn btn-info" %>
+  </p>
+
+<% end %>
+</div>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+<%= render 'shared/footer'%>
+
+

@@ -1,0 +1,97 @@
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@post.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<%= form_for :post, url: post_path(@post),method: :patch do |f| %>
+
+  <div class="form-inputs">
+
+  
+   <p>
+    <%= f.label :send_newsletter %> <input name="send_email" type="checkbox" value="yes" />
+  </p>
+
+  <p>
+    <%= f.label :custom_url %> (seperate words with hyphen (-))<br>
+    <%= f.text_area :url,:rows => 2, :cols => 150 %>
+  </p>
+
+    <p>
+    <%= f.label :image_link %><br>
+    <%= f.text_area :image,:rows => 2, :cols => 150 %>
+  </p>
+
+
+  <%= f.label :post_category %><br>
+   <p class="form-group">
+
+    <%= f.select(:category, options_for_select([
+         ['select category',''],
+         ['Art & Design', 'Art & Design'],
+         ['Auto & Vehicles', 'Auto & Vehicles'],
+         ['Beauty', 'Beauty'],
+         ['Books & Reference', 'Books & Reference'],
+         ['Business', 'Business'],
+         ['Comics', 'Comics'],
+         ['Communications', 'Communications'],
+         ['Education', 'Education'],
+         ['Entertainment', 'Entertainment'],
+         ['Events', 'Events'],
+         ['Finance', 'Finance'],
+         ['Food and Drink', 'Food and Drink'],
+         ['Health & Fitness', 'Health & Fitness'],
+         ['House & Home', 'House & Home'],
+         ['Libraries & Demo', 'Libraries & Demo'],
+         ['Lifestyle', 'Lifestyle'],
+         ['Maps & Navigation', 'Maps & Navigation'],
+         ['Medical', 'Medical'],
+         ['Music & Audio', 'Music & Audio'],
+         ['News & Magazines', 'News & Magazines'],
+         ['Parenting', 'Parenting'],
+         ['Personalization', 'Personalization'],
+         ['Photography', 'Photography'],
+         ['Productivity', 'Productivity'],
+         ['Shopping', 'Shopping'],
+         ['Social', 'Social'],
+         ['Sports', 'Sports'],
+         ['Travel & Local', 'Travel & Local'],
+         ['Video Players & Editors', 'Video Players & Editors'],
+         ['Weather', 'Weather']
+
+    ],@post.category),class: "form-control") %>
+
+    </p>
+
+  <p>
+    <%= f.label :post_title %><br>
+    <%= f.text_area :title,  :rows => 5, :cols => 150 %>
+  </p>
+
+
+
+    <p>
+    <%= f.label :post_body %><br>
+    <%= f.text_area :post, :class => "tinymce", :rows => 40, :cols => 120 %>
+  </p>
+
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit%>
+  </div>
+<% end %>
+
+
+<%= tinymce %>
