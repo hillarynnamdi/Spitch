@@ -11,7 +11,7 @@ class HomeController < ApplicationController
 
 	def pagination
 
-		@pagination=Post.order("id DESC").paginate(:page => params[:page], :per_page => 1)
+		@pagination=Post.order("id DESC").paginate(:page => params[:page], :per_page => 4)
 
 	end
 end
